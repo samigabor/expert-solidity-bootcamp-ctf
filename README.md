@@ -82,3 +82,26 @@ forge create \
     --private-key $PRIVATE_KEY \
     src/level0.sol:Level0Template
 ```
+
+## [Level 1 - Level 1 - Matrix Addition](https://www.solidityctf.xyz/level-1)
+
+Write a function that adds two matrices returns the result. To keep things simple the array sizes will be fixed sizes of 2x3 (uint256[2][3]). Take a look at [Wikipedia](https://en.wikipedia.org/wiki/Matrix_addition) if you need help understanding matrix addition. Your solution should implement the following interface:
+```ts
+interface Isolution1 {
+    function solution(
+        uint256[2][3] calldata x, 
+        uint256[2][3] calldata y
+    ) external pure returns (
+        uint256[2][3] memory
+    );
+}
+```
+
+### Deployed to: 0xD29Dae3faF5dc442501675BfE604DbF56C2d71D2
+```sh
+forge create \
+    --rpc-url $RPC_URL_SEPOLIA \
+    --optimizer-runs 10000 \
+    --private-key $PRIVATE_KEY \
+    src/level1.sol:Level1Template
+```
