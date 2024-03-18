@@ -83,7 +83,7 @@ forge create \
     src/level0.sol:Level0Template
 ```
 
-## [Level 1 - Level 1 - Matrix Addition](https://www.solidityctf.xyz/level-1)
+## [Level 1 - Matrix Addition](https://www.solidityctf.xyz/level-1)
 
 Write a function that adds two matrices returns the result. To keep things simple the array sizes will be fixed sizes of 2x3 (uint256[2][3]). Take a look at [Wikipedia](https://en.wikipedia.org/wiki/Matrix_addition) if you need help understanding matrix addition. Your solution should implement the following interface:
 ```ts
@@ -104,4 +104,23 @@ forge create \
     --optimizer-runs 10000 \
     --private-key $PRIVATE_KEY \
     src/level1.sol:Level1Template
+```
+
+## [Level 2 - Sorting an Array](https://www.solidityctf.xyz/level-2)
+
+Write a function that sorts an array in ascending order and returns the result. The array will be a fixed of 10 but the contents random. Your solution should implement the following interface:
+
+```ts
+interface Isolution2 {
+    function solution(uint256[10] calldata unsortedArray) external returns (uint256[10] memory sortedArray);
+}
+```
+
+### Deployed to: 0x7afAB4138f0d2f7524B57A6dA0ecfdeE4Be9895c
+```sh
+forge create \
+    --rpc-url $RPC_URL_SEPOLIA \
+    --optimizer-runs 10000 \
+    --private-key $PRIVATE_KEY \
+    src/level2.sol:Level2Template
 ```
