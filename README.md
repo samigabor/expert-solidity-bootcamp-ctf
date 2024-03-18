@@ -97,7 +97,7 @@ interface Isolution1 {
 }
 ```
 
-### Deployed to: 0xD29Dae3faF5dc442501675BfE604DbF56C2d71D2
+### Deployed to: 0xc6869f2EBaB3dE4f80a62b1d598552ca0297Ad9c
 ```sh
 forge create \
     --rpc-url $RPC_URL_SEPOLIA \
@@ -116,11 +116,31 @@ interface Isolution2 {
 }
 ```
 
-### Deployed to: 0x7afAB4138f0d2f7524B57A6dA0ecfdeE4Be9895c
+### Deployed to: 0x04eBDD92f5669aB6A1022619d3E430448dc7A871
 ```sh
 forge create \
     --rpc-url $RPC_URL_SEPOLIA \
     --optimizer-runs 10000 \
     --private-key $PRIVATE_KEY \
     src/level2.sol:Level2Template
+```
+
+## [Level 3 - ](https://www.solidityctf.xyz/level-3)
+
+Using the Isolution3 interface write a function that unpacks our data that was packed using abi.encodePacked(a, b, c). Where a is type uint16, b is type bool and c is type bytes6.
+
+
+```ts
+interface Isolution3 {
+    function solution(bytes memory packed) external returns (uint16 a, bool b, bytes6 c);
+}
+```
+
+### Deployed to: 0xDf370a92149C4162f9A32e004aE21b424D6a164D
+```sh
+forge create \
+    --rpc-url $RPC_URL_SEPOLIA \
+    --optimizer-runs 10000 \
+    --private-key $PRIVATE_KEY \
+    src/level3.sol:Level3Template
 ```
