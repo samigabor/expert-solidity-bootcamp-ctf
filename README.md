@@ -1,25 +1,5 @@
 ## CTF
 
-### Template:
-
-```js
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.17;
-
-/*
-    interface Isolution {
-        function solution() external pure returns (uint8);
-    }
-*/
-
-contract Level0Template {
-
-	  function solution() external pure returns (uint8){
-        // TODO: Implement your solution here
-      }
-}
-```
-
 ### Settings:
 ```json
 {
@@ -97,7 +77,7 @@ interface Isolution1 {
 }
 ```
 
-### Deployed to: 0xc6869f2EBaB3dE4f80a62b1d598552ca0297Ad9c
+### Deployed to: 0x2c49a680A1B75b4AF07C7caF3541cb72Ae5F7d20
 ```sh
 forge create \
     --rpc-url $RPC_URL_SEPOLIA \
@@ -125,7 +105,7 @@ forge create \
     src/level2.sol:Level2Template
 ```
 
-## [Level 3 - ](https://www.solidityctf.xyz/level-3)
+## [Level 3 - abi.encodePacked](https://www.solidityctf.xyz/level-3)
 
 Using the Isolution3 interface write a function that unpacks our data that was packed using abi.encodePacked(a, b, c). Where a is type uint16, b is type bool and c is type bytes6.
 
