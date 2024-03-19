@@ -13,9 +13,10 @@ contract Level3Template {
         b = packed[2] != 0;
 
         // Unpack bytes6 'c' from the remaining 6 bytes
-        unchecked { // Disable overflow checks since we are sure the array is of length 6
-            for (uint256 i = 0; i < 6; i++) {
-                c |= bytes6(packed[i + 3]) >> (i * 8);
+        for (uint256 i = 0; i < 6;) {
+            c |= bytes6(packed[i + 3]) >> (i * 8);
+            unchecked { // Disable overflow checks since we know the array is of length 6
+                ++i;
             }
         }
     }
