@@ -31,11 +31,8 @@ This level is really simple. Use the interface below to write a smart contract. 
 
 ### Interface:
 ```ts
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.17;
-
 interface Isolution {
-    function solution() external pure returns (uint8);
+  function solution() external pure returns (uint8);
 }
 ```
 
@@ -47,10 +44,9 @@ To solve we need write the function to return the correct answer. In this case w
 pragma solidity 0.8.17;
 
 contract Level_0 {
-
   function solution() external pure returns (uint8){
-      return 42;
-    }
+    return 42;
+  }
 }
 ```
 
@@ -68,12 +64,12 @@ forge create \
 Write a function that adds two matrices returns the result. To keep things simple the array sizes will be fixed sizes of 2x3 (uint256[2][3]). Take a look at [Wikipedia](https://en.wikipedia.org/wiki/Matrix_addition) if you need help understanding matrix addition. Your solution should implement the following interface:
 ```ts
 interface Isolution1 {
-    function solution(
-        uint256[2][3] calldata x, 
-        uint256[2][3] calldata y
-    ) external pure returns (
-        uint256[2][3] memory
-    );
+  function solution(
+    uint256[2][3] calldata x, 
+    uint256[2][3] calldata y
+  ) external pure returns (
+    uint256[2][3] memory
+  );
 }
 ```
 
@@ -92,7 +88,7 @@ Write a function that sorts an array in ascending order and returns the result. 
 
 ```ts
 interface Isolution2 {
-    function solution(uint256[10] calldata unsortedArray) external returns (uint256[10] memory sortedArray);
+  function solution(uint256[10] calldata unsortedArray) external returns (uint256[10] memory sortedArray);
 }
 ```
 
@@ -112,7 +108,7 @@ Using the Isolution3 interface write a function that unpacks our data that was p
 
 ```ts
 interface Isolution3 {
-    function solution(bytes memory packed) external returns (uint16 a, bool b, bytes6 c);
+  function solution(bytes memory packed) external returns (uint16 a, bool b, bytes6 c);
 }
 ```
 
@@ -124,3 +120,30 @@ forge create \
     --private-key $PRIVATE_KEY \
     src/level3.sol:Level3Template
 ```
+
+## [Level 4 - Powers of 2](https://www.solidityctf.xyz/level-4)
+
+Using the Isolution4 interface write a function that takes a uint256 value and returns the greatest power of 2, (2 ^ n) that is less than or equal to the input value. The input value is a number between 2^0 and 2^256 -1
+
+
+```ts
+// stdin: 1                     stdout: 1 or 2**0
+// stdin: 10                    stdout: 8 or 2**3
+// stdin: 21                    stdout: 16 or 2**4
+// stdin: 2048                  stdout: 2048 or 2**11
+// stdin: 9223372036854775808   stdout: 9223372036854775808 or 2**63
+// stdin: 0xffffffff            stdout: 2147483648 or 0x80000000 or 2**31
+interface Isolution {
+  function solution(uint256 number) external pure returns (uint256);
+}
+```
+
+### Deployed to: 0x52B43c71Ad3C899A1FDBB216764513753d37E725
+```sh
+forge create \
+    --rpc-url $RPC_URL_SEPOLIA \
+    --optimizer-runs 10000 \
+    --private-key $PRIVATE_KEY \
+    src/level4.sol:Level4Template
+```
+
